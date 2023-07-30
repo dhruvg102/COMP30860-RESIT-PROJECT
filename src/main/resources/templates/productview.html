@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img th:src="@{images/logo.png}" alt="LOGO" width="125px"/>
+            </div>
+            <nav>
+                <ul>
+                    <form class="nav-form-btn" action="/" method="GET">
+                        <button class="nav-button" >Home</button>
+                    </form>
+
+                    <form class="nav-form-btn" action="/account" method="GET">
+                        <button class="nav-button" >Account</button>
+                    </form>
+                    
+                    <form class="nav-form-btn" action="/loginpage" method="Get">
+                        <button class="nav-button" >Login</button>
+                    </form>
+
+                    <form class="nav-form-btn">
+                        <a th:href="@{/cart}"><img th:src="@{/images/cart.png}" width=25px height=25px alt="Cart_icon"></a>
+                    </form>
+                </ul>
+            </nav>
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <img th:src="@{/images/image1.png}" alt="Main_IMAGE">
+    </div>
+    <div class="col-2">
+        <h1>Get the AI Model <br>For You!</h1>
+        <p>
+            <strong th:text="${product.getDesc()}"></strong>
+        </p>
+        <p>Text about the ai models and the shop. Have to figure out what to<br> put here. The text needs to be atleast this long.</p>
+        <br><br>
+        <div class="row training">
+            <div class="col-2">
+                <div class="untrained">
+                    <span><h2>Untrained</h2></span><br>
+                    <span th:text="${product.getUntrainedPrice()}"></span><br>
+                    <a th:href="@{/addUntrained/{id}(id=${product.getId()})}" class="add-cart">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="trained">
+                    <span><h2>Trained</h2></span><br>
+                    <span th:text="${product.getTrainedPrice()}"></span><br>
+                    <a th:href="@{/addTrained/{id}(id=${product.getId()})}" class="add-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>

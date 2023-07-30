@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Cart</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/cart.css}">
+
+</head>
+<body>
+
+<div class="title">
+
+<!--TODO ADD LOGO -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div  class="col-md-6 offset-md-3">
+            <h3 class ="text-center mb-4">My Cart</h3>
+              <table class="table-product">
+                <tr th:each="product:${cart}">
+                    <td>
+                    <div class= "card mb-4">
+                        <div class="card-header" >
+                            Product Name:
+                            <div class="product" th:text="${product.name}"></div>
+                        </div>
+                        <div class="card-body">
+                            <p>Description:<div class="product" th:text="${product.desc}"></div></p>
+                            <p>Price:<div class="product" th:text="${product.price}"></div></p>
+                        </div>
+                    </div > 
+                    </td>
+                </tr>
+        </table>
+
+        <a th:href="@{/}" class="btn btn-primary mr-3" >Continue Shopping</a>
+        <a th:href="@{/checkout}" class="btn btn-success">Proceed to Checkout</a>
+    </div>
+</div>
+
+
+</body>
+</html>

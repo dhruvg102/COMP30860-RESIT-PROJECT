@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+
+    <title>login</title>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="check">
+        
+        <div class="login form">
+          <header>Login</header>
+          <form action="#" th:action="@{/login}" method="GET" th:object="${user}">
+            <input type="text" placeholder="Enter your username" th:field="*{username}">
+            <input type="password" placeholder="Create a password" th:field="*{password}">
+            <input type="submit" class="button" value="Login">
+          </form>
+          <div class="signup">
+            <span class="signup">Don't have an account?
+             <label for="check">Signup</label>
+            </span>
+          </div>
+        </div>
+
+
+        <div class="registration form">
+          <header>Signup</header>
+          <form action="#" th:action="@{/newUser}" method="POST" th:object="${user}">
+            <input type="text" placeholder="Enter your username" th:field="*{username}">
+            <input type="text" placeholder="Enter your email" th:field="*{email}">
+            <input type="password" placeholder="Create a password" th:field="*{password}">
+            <input type="submit" class="button" value="Signup">
+          </form>
+          <div class="signup">
+            <span class="signup">Already have an account?
+             <label for="check">Login</label>
+            </span>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
